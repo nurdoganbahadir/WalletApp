@@ -11,7 +11,7 @@
       crossorigin="anonymous"
     />
   </head>
-  <body>
+  <body class="bg-light">
     <h1 class="text-center m-5">My Wallet App</h1>
     <div class="container bg-success rounded-2 text-light">
       <form action="" class="border-1">
@@ -43,6 +43,7 @@
             type="text"
             placeholder="Kira, Fatura, Kredi Kartı Ödemesi vb."
             class="rounded-2 border-0 p-2 form-control"
+            id="priceArea"
           />
         </div>
         <div class="container text-center">
@@ -51,7 +52,7 @@
       </form>
     </div>
     <div class="container mt-2">
-      <table class="w-100 rounded-2 bg-info">
+      <table class="w-100 rounded-2 bg-info infoTable">
         <tr>
           <th class="p-2">Tarih</th>
           <th>Harcama Alanı</th>
@@ -101,5 +102,6 @@
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
+    <script src="./app.js"></script>
   </body>
 </html>
