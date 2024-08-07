@@ -55,9 +55,10 @@ function harcamaEkrani({ id, miktar, alan, tarih }) {
   document.querySelectorAll(".fa-trash-can").forEach((sil) => {
     sil.onclick = () => {
       sil.parentElement.parentElement.remove();
-      console.log(sil);
     };
   });
+
+  resultTable();
 }
 
 //? GELİR KISMI
@@ -65,4 +66,17 @@ gelirFormu.addEventListener("submit", (e) => {
   e.preventDefault();
   tumGelirler += Number(gelirInput.value);
   geliriniz.textContent = tumGelirler;
+  resultTable();
 });
+
+//?SONUÇ TABLOSU KISMI
+
+const resultTable = () => {
+  tumGelirler;
+  const tumGiderler = harcamaListesi.reduce(
+    (toplam, harcama) => toplam + Number(harcama.miktar),
+    0
+  );
+  gideriniz.textContent = tumGiderler;
+  kalan.textContent = tumGelirler - tumGiderler;
+};
