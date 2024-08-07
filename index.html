@@ -51,16 +51,36 @@
       </form>
     </div>
     <div class="container bg-success rounded-2 text-light my-2">
-      <h1 class="p-2">Harcama Formu</h1>
-      <div class="container d-flex pb-2">
-        <input
-          type="number"
-          name="gelir"
-          id="gelir"
-          placeholder="Gelirinizi Giriniz"
-          class="form-control"
-        />
-        <button type="button" class="btn btn-secondary">Ekle</button>
+      <div class="row">
+        <div class="col-6">
+          <h1 class="p-2">Gelir Formu</h1>
+          <form action="" class="row">
+            <input
+              type="number"
+              name="gelir"
+              id="gelir"
+              placeholder="Gelirinizi Giriniz"
+              class="form-control col-6 w-100"
+            />
+            <button type="submit" class="btn btn-secondary">Ekle</button>
+          </form>
+        </div>
+        <div class="col-6">
+          <table class="w-100 h-100">
+            <tr>
+              <th class="w-75">Geliriniz ($)</th>
+              <td>0</td>
+            </tr>
+            <tr>
+              <th>Gideriniz ($)</th>
+              <td>0</td>
+            </tr>
+            <tr>
+              <th>Kalan ($)</th>
+              <td>0</td>
+            </tr>
+          </table>
+        </div>
       </div>
     </div>
     <script
