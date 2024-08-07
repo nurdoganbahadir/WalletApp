@@ -16,21 +16,23 @@
     <div class="container bg-success rounded-2 text-light">
       <form action="" class="border-1">
         <h1>Harcama Formu</h1>
-        <div class="container">
-          <div>
+        <div class="d-flex w-100">
+          <div class="container d-flex flex-column w-50">
             <label for="tarih">Tarih</label>
             <input type="date" name="tarih" id="date" />
           </div>
-          <div>
+          <div class="container d-flex flex-column w-50">
             <label for="miktar">Harcama Miktarı</label>
             <input type="number" name="miktar" id="price" />
           </div>
         </div>
-        <div class="container">
+        <div class="container d-flex flex-column w-100 mt-2">
           <label for="alan">Harcama Alanı</label>
           <input type="text" />
         </div>
-        <button type="button" class="btn btn-danger">Danger</button>
+        <div class="container text-center">
+          <button type="button" class="btn btn-danger m-4">Kaydet</button>
+        </div>
       </form>
     </div>
     <script
