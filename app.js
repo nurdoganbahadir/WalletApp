@@ -50,6 +50,14 @@ function harcamaEkrani({ id, miktar, alan, tarih }) {
 <td> <i id=${id} class="fa-solid fa-trash-can text-danger"  type="button"></i>  </td>
 </tr>
 `;
+
+  //*SİLME KISMI
+  document.querySelectorAll(".fa-trash-can").forEach((sil) => {
+    sil.onclick = () => {
+      sil.parentElement.parentElement.remove();
+      console.log(sil);
+    };
+  });
 }
 
 //? GELİR KISMI
