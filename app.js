@@ -21,8 +21,8 @@ const kalan = document.querySelector("#kalan");
 
 //İLK OLARAK BOŞ LİSTE AÇILACAK VE GELİR İÇİN BİR TOPLAMA İNTEGERI OLUŞTURULACAK
 
-let harcamaListesi = [];
-let tumGelirler = 0;
+let harcamaListesi = JSON.parse(localStorage.getItem("harcamalar")) || [];
+let tumGelirler = Number(localStorage.getItem("gelirler")) || 0;
 
 //? Locale storage kullanılacağı için butonlar submit edicek
 //*HARCAMALAR KISMI
@@ -38,8 +38,11 @@ function harcamalar(e) {
     id: new Date().getTime(),
   };
   harcamaListesi.push(harcamalarim);
+  localStorage.setItem("harcamalar", JSON.stringify(harcamaListesi));
+
   harcamaEkrani(harcamalarim);
   harcamaFormu.reset();
+  resultTable();
 }
 
 function harcamaEkrani({ id, miktar, alan, tarih }) {
@@ -66,14 +69,16 @@ function harcamaEkrani({ id, miktar, alan, tarih }) {
 gelirFormu.addEventListener("submit", (e) => {
   e.preventDefault();
   tumGelirler += Number(gelirInput.value);
-  geliriniz.textContent = tumGelirler;
+
   gelirFormu.reset();
+  localStorage.setItem("gelirler", tumGelirler);
   resultTable();
 });
 
 //?SONUÇ TABLOSU KISMI
 
 const resultTable = () => {
+  geliriniz.textContent = tumGelirler;
   const tumGiderler = harcamaListesi.reduce(
     (toplam, harcama) => toplam + Number(harcama.miktar),
     0
@@ -86,9 +91,14 @@ const resultTable = () => {
 
 tumunuTemizle.addEventListener("click", allReset);
 
-function allReset(e) {
+function allReset() {
   harcamaListesi = [];
   tumGelirler = 0;
   resultTable();
   infoTable.innerHTML = "";
 }
+
+harcamaListesi.forEach((e) => {
+  harcamaEkrani(e);
+});
+resultTable();
