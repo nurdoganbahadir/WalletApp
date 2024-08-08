@@ -74,7 +74,6 @@ gelirFormu.addEventListener("submit", (e) => {
 //?SONUÇ TABLOSU KISMI
 
 const resultTable = () => {
-  tumGelirler;
   const tumGiderler = harcamaListesi.reduce(
     (toplam, harcama) => toplam + Number(harcama.miktar),
     0
@@ -82,3 +81,14 @@ const resultTable = () => {
   gideriniz.textContent = tumGiderler;
   kalan.textContent = tumGelirler - tumGiderler;
 };
+
+//?TUMUNU TEMİZLE BUTONU
+
+tumunuTemizle.addEventListener("click", allReset);
+
+function allReset(e) {
+  harcamaListesi = [];
+  tumGelirler = 0;
+  resultTable();
+  infoTable.innerHTML = "";
+}
