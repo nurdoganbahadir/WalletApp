@@ -39,6 +39,7 @@ function harcamalar(e) {
   };
   harcamaListesi.push(harcamalarim);
   harcamaEkrani(harcamalarim);
+  harcamaFormu.reset();
 }
 
 function harcamaEkrani({ id, miktar, alan, tarih }) {
@@ -66,6 +67,7 @@ gelirFormu.addEventListener("submit", (e) => {
   e.preventDefault();
   tumGelirler += Number(gelirInput.value);
   geliriniz.textContent = tumGelirler;
+  gelirFormu.reset();
   resultTable();
 });
 
